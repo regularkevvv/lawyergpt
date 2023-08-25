@@ -8,9 +8,18 @@ import fetch from "node-fetch";
 
 Office.onReady((info) => {
   if (info.host === Office.HostType.Word) {
-    document.getElementById("sideload-msg").style.display = "none";
-    document.getElementById("app-body").style.display = "flex";
-    document.getElementById("run").onclick = run;
+    const sideload = document.getElementById("sideload-msg");
+    const appBody = document.getElementById("app-body");
+    const runButton = document.getElementById("run");
+    if (sideload != null) {
+      sideload.style.display = "none";
+    }
+    if (appBody != null) {
+      appBody.style.display = "flex";
+    }
+    if (runButton != null) {
+      runButton.onclick = run;
+    }
   }
 });
 
@@ -38,7 +47,7 @@ export async function run() {
       }).then((res) => res.json());
 
       answer = response.sugggestion;
-    } catch (error) {
+    } catch (error: any) {
       answer = error.message;
     }
 
