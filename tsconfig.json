@@ -8,6 +8,8 @@
     "noEmitOnError": true,
     "outDir": "lib",
     "sourceMap": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
     "target": "es5",
     "lib": [
       "es2015",
@@ -20,7 +22,7 @@
     "lib",
     "lib-amd"
   ],
-  "ts-node": { 
-    "files": true 
+  "ts-node": {
+    "files": true
   }
 }

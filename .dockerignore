@@ -5,3 +5,4 @@ coverage/
 # python
 .ruff_cache/
 .mypy_cache/
+__pycache__/
