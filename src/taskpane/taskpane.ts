@@ -4,7 +4,17 @@
  */
 
 /* global document, Office, Word */
+import createKindeClient from "@kinde-oss/kinde-auth-pkce-js";
 import fetch from "node-fetch";
+
+(async () => {
+  const kinde = await createKindeClient({
+    client_id: "997fbb124dc543bba003fac9d8fadd79",
+    domain: "https://kevintest.kinde.com",
+    // eslint-disable-next-line no-undef
+    redirect_uri: "https://lawyergptdemo.usuarios.minube.pe",
+  });
+})();
 
 Office.onReady((info) => {
   if (info.host === Office.HostType.Word) {
