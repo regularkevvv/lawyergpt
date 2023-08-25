@@ -1,0 +1,7 @@
+.DS_Store
+node_modules/
+coverage/
+
+# python
+.ruff_cache/
+.mypy_cache/
