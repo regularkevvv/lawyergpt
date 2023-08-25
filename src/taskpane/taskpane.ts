@@ -7,20 +7,52 @@
 import createKindeClient from "@kinde-oss/kinde-auth-pkce-js";
 import fetch from "node-fetch";
 
-(async () => {
-  const kinde = await createKindeClient({
-    client_id: "997fbb124dc543bba003fac9d8fadd79",
-    domain: "https://kevintest.kinde.com",
-    // eslint-disable-next-line no-undef
-    redirect_uri: "https://lawyergptdemo.usuarios.minube.pe",
-  });
-})();
+// const kinde = await createKindeClient({
+//   client_id: "997fbb124dc543bba003fac9d8fadd79",
+//   domain: "https://kevintest.kinde.com",
+//   // eslint-disable-next-line no-undef
+//   redirect_uri: "https://lawyergptdemo.usuarios.minube.pe",
+// });
 
-Office.onReady((info) => {
+Office.onReady(async (info) => {
   if (info.host === Office.HostType.Word) {
+    const kinde = await createKindeClient({
+      client_id: "997fbb124dc543bba003fac9d8fadd79",
+      domain: "https://kevintest.kinde.com",
+      // eslint-disable-next-line no-undef
+      redirect_uri: "https://lawyergptdemo.usuarios.minube.pe",
+    });
+
     const sideload = document.getElementById("sideload-msg");
     const appBody = document.getElementById("app-body");
     const runButton = document.getElementById("run");
+    const loginButton = document.getElementById("login");
+    const logoutButton = document.getElementById("logout");
+
+    kinde.getToken().then((token) => {
+      if (token) {
+        if (loginButton != null) {
+          loginButton.style.display = "none";
+        }
+        if (logoutButton != null) {
+          logoutButton.style.display = "block";
+          logoutButton.onclick = async () => {
+            await kinde.logout();
+          };
+        }
+      } else {
+        if (loginButton != null) {
+          loginButton.style.display = "block";
+          loginButton.onclick = async () => {
+            await kinde.login({});
+          };
+        }
+        if (logoutButton != null) {
+          logoutButton.style.display = "none";
+        }
+      }
+    });
+
     if (sideload != null) {
       sideload.style.display = "none";
     }

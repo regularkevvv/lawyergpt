@@ -28,8 +28,14 @@
     <section id="sideload-msg" class="ms-welcome__main">
         <h2 class="ms-font-xl">Please <a target="_blank" href="https://learn.microsoft.com/office/dev/add-ins/testing/test-debug-office-add-ins#sideload-an-office-add-in-for-testing" rel="noopener noreferrer">sideload</a> your add-in to see app body.</h2>
     </section>
-    <main id="app-body" class="ms-welcome__main" style="display: none;">
+    <main id="app-body" class="ms-welcome__main ms-bgColor-neutralLighter" style="display: none;">
         <h2 class="ms-font-xl"> Make your texts "lawyered"! </h2>
+        <div role="button" id="login" class="ms-welcome__action ms-Button ms-Button--hero ms-font-l">
+            <span class="ms-Button-label">Login</span>
+        </div>
+        <div role="button" id="logout" class="ms-welcome__action ms-Button ms-Button--hero ms-font-l">
+            <span class="ms-Button-label">Logout</span>
+        </div>
         <p class="ms-font-l">Select the text you want to "lawyer" and click the button below.</p>
         <div role="button" id="run" class="ms-welcome__action ms-Button ms-Button--hero ms-font-xl">
             <span class="ms-Button-label">Get lawyered!</span>
