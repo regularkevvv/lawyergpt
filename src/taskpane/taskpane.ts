@@ -46,7 +46,7 @@ export async function run() {
         body: JSON.stringify({ initial_text: selection }),
       }).then((res) => res.json());
 
-      answer = response.sugggestion;
+      answer = response.suggestion;
     } catch (error: any) {
       answer = error.message;
     }
